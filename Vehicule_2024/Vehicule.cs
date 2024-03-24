@@ -1,29 +1,48 @@
 ﻿using System;
 using Usine_2024.Object;
 
-namespace Vehicule_2024
+
+public class MainUsine
+{
+    static void Main(string[] args)
+    {
+        Usine usine = new Usine();
+
+        List<Vehicule> l = new List<Vehicule>();
+        l.Add(usine.FabriquerVehicule(2));
+        l.Add(usine.FabriquerVehicule(4));
+        l.Add(usine.FabriquerVehicule(6));
+        l.Add(usine.FabriquerVehicule(8));
+
+        foreach (Vehicule v in l)
+        {
+            v.Accelerer();
+            v.Freiner();
+        }
+        //moto.Accelerer();
+        //moto.Freiner();
+
+        //auto.Accelerer();
+        //auto.Freiner();
+
+        //pickup.Accelerer();
+        //pickup.Freiner();
+
+        //camion.Accelerer();
+        //camion.Freiner();
+
+    }
+}
+
+namespace Usine_2024.Object
 {
     public class Vehicule
     {
-        static void Main(string[] args)
+
+        public Vehicule()
         {
-            Usine usine = new Usine();
-            Vehicule moto = usine.FabriquerVehicule(2);
-            Vehicule auto = usine.FabriquerVehicule(4);
-            Vehicule pickup = usine.FabriquerVehicule(6);
-            Vehicule camion = usine.FabriquerVehicule(8);
-
-            moto.Accelerer();
-            moto.Freiner();
-
-            auto.Accelerer();
-            auto.Freiner();
-
-            pickup.Accelerer();
-            pickup.Freiner();
-
-            camion.Accelerer();
-            camion.Freiner();
+            Console.WriteLine("Création d'un véhicule allééééééé");
+            Console.WriteLine("-------------------");
         }
 
         public virtual void Freiner() // Changement de la méthode en virtual pour permettre l'override dans les classes dérivées
@@ -34,7 +53,7 @@ namespace Vehicule_2024
 
         public virtual void Accelerer() // Changement de la méthode en virtual pour permettre l'override dans les classes dérivées
         {
-            Console.WriteLine("Le véhicule accélère."); ;
+            Console.WriteLine("Le véhicule accélère.");
         }
     }
 
@@ -57,4 +76,5 @@ namespace Vehicule_2024
             }
         }
     }
+
 }
